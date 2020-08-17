@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:gravity="right">
+
+    <ImageView
+        android:layout_width="90.0dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop = "10dp"
+        android:layout_marginRight = "10dp"
+        android:id="@+id/ImageLogo"
+    />
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_gravity="right">
+
+        <TextView
+            android:text="Name"
+            android:textSize="18dp"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/NameText"/>
+        <TextView
+            android:text="Description description description description description description description"
+            android:textSize="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/DescriptionText"/>
+    </LinearLayout>
+</LinearLayout>
