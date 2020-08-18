@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -17,6 +20,19 @@ namespace VolgaAndroid.Models
         public string login { get; set; }
         public int id { get; set; }
         public string node_id { get; set; }
+        public string avatar_image
+        {
+            get
+            {
+                var path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData);
+                var filename = System.IO.Path.Combine(path, login+"_image.jpg");
+                return filename;
+            }
+            set
+            {
+                avatar_image = value;
+            }
+        }
         public string avatar_url { get; set; }
         public string gravatar_id { get; set; }
         public string url { get; set; }

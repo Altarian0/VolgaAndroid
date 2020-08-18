@@ -18,28 +18,38 @@ namespace VolgaAndroid.Helper
 {
     public class GitHubApiMethod
     {
+        /// <summary>
+        /// Get Repositories from GitHub
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<GitRepository>> GetRepositories()
         {
+          
+                List<GitRepository> repositories = new List<GitRepository>();
+                string jsonRepositories = "";
 
-            List<GitRepository> repositories = new List<GitRepository>();
-            string jsonRepositories = "";
-
-            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(@"https://Altarian0:ahmadag001@api.github.com/repositories");
-            webRequest.Method = "GET";
-            HttpWebResponse webResponse = (HttpWebResponse)await webRequest.GetResponseAsync();
-            using (Stream stream = webResponse.GetResponseStream())
-            {
-                using (StreamReader reader = new StreamReader(stream))
+                HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(@"https://api.github.com/repositories");
+                webRequest.Method = "GET";
+                webRequest.UserAgent = "Volga Android Test";
+                HttpWebResponse webResponse = (HttpWebResponse)await webRequest.GetResponseAsync();
+                using (Stream stream = webResponse.GetResponseStream())
                 {
-                    jsonRepositories = reader.ReadToEnd();
+                    using (StreamReader reader = new StreamReader(stream))
+                    {
+                        jsonRepositories = reader.ReadToEnd();
+                    }
                 }
-            }
 
-            webResponse.Close();
-            repositories = JsonConvert.DeserializeObject<List<GitRepository>>(jsonRepositories);
-            return repositories;
+                webResponse.Close();
+                repositories = JsonConvert.DeserializeObject<List<GitRepository>>(jsonRepositories);
+                return repositories;
+           
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public async Task<string> GetPostman()
         {
             string jsonResponse = "";

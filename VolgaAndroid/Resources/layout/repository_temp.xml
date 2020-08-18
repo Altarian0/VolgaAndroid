@@ -4,21 +4,29 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="90dp"
-    android:gravity="right">
+    android:gravity="left">
 
-    <ImageView
-        android:layout_width="90.0dp"
-        android:layout_height="match_parent"
-        android:layout_marginTop = "10dp"
-        android:layout_marginRight = "10dp"
-        android:id="@+id/ImageLogo"
-    />
     <LinearLayout
-        android:layout_width="280dp"
+        android:layout_width="90dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="90.0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop = "10dp"
+            android:id="@+id/ImageLogo"/>
+        <TextView
+            android:gravity="center_horizontal"
+            android:text="Author"
+            android:layout_width="85dp"
+            android:layout_height="20dp"
+            android:id="@+id/AuthorText"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="250dp"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_gravity="right">
-
         <TextView
             android:text="Name"
             android:textSize="18dp"
@@ -33,4 +41,11 @@
             android:layout_height="wrap_content"
             android:id="@+id/DescriptionText"/>
     </LinearLayout>
+
+    <ImageButton
+        android:scaleType="centerCrop"
+        android:layout_gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/FavoriteButton"/>
 </LinearLayout>

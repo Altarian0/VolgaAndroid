@@ -1,6 +1,5 @@
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout   xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,15 +14,10 @@
         android:layout_height="50dp">
         <TextView
             android:textSize="18dp"
-            android:text="Repositories List"
+            android:text="Favorite repositories List"
             android:layout_width="200dp"
             android:layout_height="40dp"/>
-        <Button
-            android:text="Favorite"
-            android:textAllCaps="false"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-        android:id="@+id/FavoriteButton"/>
+
     </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:layout_marginLeft="10dp"
