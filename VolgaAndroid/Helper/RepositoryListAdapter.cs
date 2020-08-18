@@ -64,7 +64,17 @@ namespace VolgaAndroid.Helper
             var repos = GitRepositories[position];
             RepositoryListViewHolder view = holder as RepositoryListViewHolder;
 
-            view.ImageLogo.SetImageBitmap(GetBitmapFromUrl(repos.owner.avatar_url));
+            try
+            {
+                view.ImageLogo.SetImageBitmap(GetBitmapFromUrl(repos.owner.avatar_url));
+            }
+            catch
+            {
+                Bitmap bitmap;
+                bitmap = BitmapFactory.DecodeFile(repos.owner.avatar_image);
+                view.ImageLogo.SetImageBitmap(bitmap);
+            }
+
             view.NameText.Text = repos.name;
             view.DescriptionText.Text = repos.description;
             view.AuthorText.Text = repos.owner.login;
@@ -81,8 +91,8 @@ namespace VolgaAndroid.Helper
             {
                 FavoriteList = db.GetFavorite();
 
-                bool isFav = FavoriteList.Where(n => n.id == repos.id).ToList().Count() > 0;
-                if (isFav)
+                bool isFav2 = FavoriteList.Where(n => n.id == repos.id).ToList().Count() > 0;
+                if (isFav2)
                 {
                     view.FavoriteButton.SetImageResource(Resource.Drawable.star_off);
                     db.RemoveRepos(repos.id);
@@ -103,7 +113,6 @@ namespace VolgaAndroid.Helper
                 }
             };
         }
-
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {

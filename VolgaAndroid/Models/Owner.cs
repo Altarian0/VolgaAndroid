@@ -30,7 +30,8 @@ namespace VolgaAndroid.Models
             }
             set
             {
-                avatar_image = value;
+                if(avatar_image == "")
+                    avatar_image = value;
             }
         }
         public string avatar_url { get; set; }
